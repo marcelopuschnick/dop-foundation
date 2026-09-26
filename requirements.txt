@@ -1,2 +1,7 @@
+fastapi
+uvicorn
 streamlit
+web3
+ipfshttpclient
+py-solc-x
 python-dotenv
