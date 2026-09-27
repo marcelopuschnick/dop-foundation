@@ -67,31 +67,57 @@ CATALOGO_MOCKUP = [
 ]
 
 # =============================================================================
+# IMAGENS DOS ÁLBUNS — COVERS DO UNSPLASH
+# =============================================================================
+COVERS = {
+    1: "https://images.unsplash.com/photo-1614726395744-dc36ecd20a1b?w=400&h=400&fit=crop",
+    2: "https://images.unsplash.com/photo-1493225255756-d9584486029e?w=400&h=400&fit=crop",
+    3: "https://images.unsplash.com/photo-1514320297829-725c6ab7f8e5?w=400&h=400&fit=crop",
+    4: "https://images.unsplash.com/photo-1470225620780-dc8f911b6a73?w=400&h=400&fit=crop",
+    5: "https://images.unsplash.com/photo-1493225255756-d9584486029e?w=400&h=400&fit=crop",
+    6: "https://images.unsplash.com/photo-1459749411177-287ce324648d?w=400&h=400&fit=crop"
+}
+
+# =============================================================================
 # HEADER
 # =============================================================================
 col1, col2, col3 = st.columns([4, 2, 4])
 
 with col2:
     st.markdown("""
-    <div style="display:flex; align-items:center; justify-content:center; min-height:80px; background:#0a0a0a; border:3px solid #FF00FF;">
-        <span style="font-size:60px; filter:drop-shadow(0 0 15px #FF00FF);">🎵</span>
+    <div style="display:flex; align-items:center; justify-content:center; min-height:80px; background:linear-gradient(135deg,#0a0a0a,#1a1a2e); border:3px solid #FF00FF; box-shadow:0 0 30px rgba(255,0,255,0.3);">
+        <span style="font-size:70px; filter:drop-shadow(0 0 20px #FF00FF) drop-shadow(0 0 30px #FF6B00);">🎵</span>
     </div>
     """, unsafe_allow_html=True)
 
 st.markdown("---")
 
 # =============================================================================
-# TÍTULO E DESCRIÇÃO
+# HERO SECTION — CARTÃO PRINCIPAL COM DEGRADÊ ANIMADO
 # =============================================================================
-st.title("DOP FOUNDATION")
-st.subheader("LOJA PREMIUM DE FLAC MASTER — ALTISSIMA QUALIDADE")
-
 st.markdown("""
-<div style="background:linear-gradient(180deg,#FF00FF,#FF6B00); padding:24px; text-align:center; margin-top:16px;">
-    <p style="margin:0; font-size:16px; color:#fff; line-height:1.6;">
-        <strong>CATÁLOGO DE FLAC MASTER</strong><br>
-        Qualidade de referência • Downloads descentralizados • FLAC 16-bit/44.1kHz
+<div style="background:linear-gradient(135deg,rgba(26,26,46,0.95),rgba(10,10,10,0.98));
+                padding:48px; border-radius:16px; border:2px solid #FF6B00;
+                box-shadow:0 10px 40px rgba(255,107,0,0.2); margin-bottom:32px;">
+    <h1 style="color:#fff; font-size:42px; text-align:center; margin:0 0 16px 0;
+               background:linear-gradient(180deg,#FF00FF,#FF6B00);
+               -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+               font-weight:900;">DOP FOUNDATION</h1>
+    <p style="color:#FF6B00; font-size:20px; text-align:center; margin:0 0 24px 0;">
+        LOJA PREMIUM DE FLAC MASTER — ALTISSIMA QUALIDADE
     </p>
+    <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;
+                background:linear-gradient(180deg,#FF00FF,#FF6B00); padding:20px; border-radius:12px;">
+        <span style="background:rgba(255,255,255,0.2); padding:12px 24px; border-radius:8px; color:#fff; font-size:14px; font-weight:700;">
+            🎼 QUALIDADE FLAC 16-bit/44.1kHz
+        </span>
+        <span style="background:rgba(255,255,255,0.2); padding:12px 24px; border-radius:8px; color:#fff; font-size:14px; font-weight:700;">
+            📦 DOWNLOADS DECENTRALIZADOS
+        </span>
+        <span style="background:rgba(255,255,255,0.2); padding:12px 24px; border-radius:8px; color:#fff; font-size:14px; font-weight:700;">
+            🔒 DADOS PORTÁVEIS
+        </span>
+    </div>
 </div>
 """, unsafe_allow_html=True)
 
@@ -147,12 +173,12 @@ for obra in obras_filtradas:
 
         st.markdown(f"""
         <div style="background:#0a0a0a; border:2px solid #FF6B00;
-                    padding:16px; margin-bottom:16px; text-align:center;">
-            <!-- Usando placeholder de imagem -->
-            <div style="width:100%; height:180px; background:linear-gradient(135deg,#1a1a2e,#2a2a4e);
-                        display:flex; align-items:center; justify-content:center; margin-bottom:12px; border-radius:8px;">
-                <span style="font-size:60px; opacity:0.5;">🎵</span>
-            </div>
+                    padding:16px; margin-bottom:16px; text-align:center;
+                    transition:all 0.3s ease; cursor:pointer;"
+             onmouseover="this.style.borderColor='#FF00FF'; this.style.boxShadow='0 0 25px rgba(255,0,255,0.3)'"
+             onmouseout="this.style.borderColor='#FF6B00'; this.style.boxShadow='0 0 15px rgba(255,107,0,0.2)'">
+            <!-- Imagem cover do álbum -->
+            <img src="{COVERS.get(obra['id'], 'https://images.unsplash.com/photo-1614726395744-dc36ecd20a1b?w=400&h=400&fit=crop')}" style="width:100%; height:240px; object-fit:cover; border-radius:8px; margin-bottom:12px; box-shadow:0 4px 16px rgba(0,0,0,0.3);">
 
             <h3 style="color:#fff; font-size:18px; margin:0 0 4px 0; font-weight:700;">{obra['nome']}</h3>
             <p style="color:#FF6B00; font-size:14px; margin:4px 0;"><strong>{obra['artista']}</strong></p>
