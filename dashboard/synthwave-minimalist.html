@@ -1,0 +1,26 @@
+ <!DOCTYPE html>
+<html lang="pt-BR">
+<head><meta charset="UTF-8">
+<title>DopeFlac</title>
+<style>
+:root{--bg:#000;--fg:#fff;--primary:#ff4d00;--secondary:#cc00ff}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,-apple-system,system-ui,Helvetica,Arial,sans-serif}
+html,body{height:100%;background:var(--bg);color:var(--fg)}
+a{text-decoration:none;color:inherit}h1,h2,h3{font-weight:400;letter-spacing:-0.02em;text-transform:uppercase}body{display:flex;flex-direction:column;height:100vh;line-height:1.5}nav{position:fixed;left:0;top:0;width:100%;height:72px;display:flex;align-items:center;background:rgba(0,0,0,0.9);border-bottom:1px solid rgba(255,255,255,0.1);z-index:10;font-size:14px}nav a{display:block;padding:24px 32px;color:#666;cursor:pointer}nav a:hover{color:#fff!important;background:rgba(255,255,255,0.02);}nav a.active{background:linear-gradient(90deg,var(--primary),transparent);padding-left:48px;transition:all 0.4s cubic-bezier(.25,.8,.25,1)}main{margin-top:72px;padding-bottom:16vh;display:grid;grid-template-columns:1fr 320px;gap:4rem;}section{padding:0 var(--side) minmax(var(--min),1fr)}article{margin-bottom:2rem;background:rgba(255,255,255,.04);border-radius:-28px;padding:64px 32px 64px 44px;position:relative}button{padding:16px 24px;margin-left:0.5rem;min-width:112px;border:none;background:var(--primary);color:#fff;font-size:14px;cursor:pointer;transition:all .3s cubic-bezier(.2,0,.2,1)}button:hover{transform:translateY(-8px);background:#ff6020}article h2{position:relative;z-index:1;margin-bottom:2rem;color:var(--primary)}p{color:#999;line-height:1.5;margin-top:var(--space-sm)}article:not(:first-child){margin-left:-32px;border-radius:0;box-shadow:28px 0 48px rgba(255,77,0,.2),-28px 0 48px rgba(204,0,255,.15);transition:all .3s cubic-bezier(.2,.8,.2,1);border-left:calc(var(--space-lg)/4)*solid;transform:translateX(-28%)}
+[article]:hover{box-shadow:none}section:last-child{background:rgba(255,77,0,0.95)}section:last-child h3{color:#fff;font-size:2rem;margin-bottom:.8rem}section:last-child p{color:rgba(146,158,171,.7);margin-bottom:.4rem}section:last-child .stat-box{display:flex;gap:var(--space-xl);padding-top:var(--space-lg)}section:last-child .stat-box h4{color:rgba(230,230,230,.65);font-size:calc(var(--space-lg)*.8)}section:last-child .stat-box p{display:flex;gap:16px;font-size:.9rem}
+@media(max-width:900px){main{grid-template-columns:1fr;gap:0}}@media(max-width:700px){section:last-child,article:nth-last-child(2),article:nth-last-child(3)order:-1;background:#111;font-size:.85rem;padding:24px 16px;border-radius:-28px}article h2{font-size:1.2rem;margin-bottom:var(--space-sm)}
+</style>
+</head>
+
+<body style="--side:calc(72px+320px+2rem);--min:auto;:text-rendering optimize legibility">
+<aside id="menu"><nav><a href="#" class="active">Overview</a></nav><div style="position:absolute;left:100%;top:0;right:-64px;background:#111;height:100vh;z-index:9;display:flex;flex-direction:column;padding-top:72px;font-size:15px"><a href="#" class="active">Overview</a><a href="#" style="padding-left:48px">Library</a><a href="#" style="padding-left:48px">Grants</a><a href="" style="padding-left:48px">Community</a><a href="" class="active" style="margin-top:auto;padding-bottom:32px">Supporters</a></div></aside>
+
+<main style="--space:calc(72px+320px+2rem)">
+<section aria-label="player"><article><h2>Neon Rhythms</h2><p style="color:#666"><span style="border-bottom:1px solid var(--primary);padding-bottom:.2px">FLAC Lossless</span></p><p style="font-size:.75rem;color:#444">24-bit/96kHz High-Fidelity Master • Cipher Kid</p></article></section>
+<section><article><h2>Cultural Fund</h2><div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem"><div class="stat-box"><p>$<span style="color:#ff0">487,250.00</span> USD</p><h3 style="color:#222;position:relative;z-index:1;margin-right:-4px;font-size:.9rem">Total Fund Value</h3></div><div class="stat-box"><p style="color:#262">DISTRIBUTED<br>$<span style="font-weight:700">1,215,900.00</span> USD</p><h3 class="position:relative;z-index:1;margin-right:-4px" style="margin-top:.4rem;font-size:.9rem;font-weight:400">Total Distributed Value</h3></div></div><br><hr style="border-top:1px solid rgba(255,255,255,.2);margin-top:calc(var(--space-md)/-4)">
+<div class="stat-box"><h4>VOTING IN PROGRESS</h4><article><h3>Starfall</h3><p style="color:#666">NovaX • <span style="color:#777;">1205 votes</span></p><button style="width:auto;height:2.8rem;margin-left:.2rem;color:#f3;padding-right:32px">VOTE NOW (24hrs)</button></article>  <article><h3>Eclipse</h3><p style="color:#666">Lunar Echo • <span style="color:#777;">980 votes</span></p><button style="width:auto;height:2.8rem;margin-left:.2rem;color:#fff;padding-right:32px">VOTE NOW (13hrs)</button></article></div>  </section>
+  <section aria-label="recent"><article><h2>Recent Releases</h2><p>🔮 Synthwave Dreams</p><p>⭕ Quantum Beats</p><p>🌆 Urban Pulse</p><br><hr style="border-width:0;border-top:1px dashed rgba(255,77,0,.4);margin-top:var(--space-sm)">
+<article aria-hidden="true"></article></section>  </main>
+
+</body>
+</html>

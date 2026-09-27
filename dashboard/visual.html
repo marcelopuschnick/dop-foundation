@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>DOPEFLACK FOUNDATION - Visual Dashboard</title>
+<style>
+/* CSS Moderno Premium */
+:root {
+  --primary: #FF5E00;
+  --secondary: #FF00AA;
+  --bg-dark: #0a0a0a;
+  --bg-card: #111111;
+  --border-color: #222222;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box;}
+body{background:var(--bg-dark);color:#fff;font-family:sans-serif;margin:0}
+h1,h2,h3{font-weight:900;color:var(--secondary);letter-spacing:-0.5px;text-transform:uppercase;margin-bottom:1rem}
+.container{max-width:1280px;margin:40px auto;padding:0 20px;}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;}
+.card{background:linear-gradient(135deg,#111,#0a0a0a);border:1px solid var(--border-color);padding:24px;border-radius:16px;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:conic-gradient transparent,var(--primary),transparent;opacity:0.05;animation:scale 10s linear infinite}
+.btn{display:inline-block;padding:12px 32px;background:linear-gradient(90deg,var(--primary),var(--secondary));color:#fff;border:none;border-radius:8px;cursor:pointer;font-weight:700;text-transform:uppercase;font-size:14px;margin-top:16px;transition:transform 0.3s}
+.btn:hover{transform:scale(1.05)}
+.badge-badge{display:inline-block;padding:4px 12px;border-radius:8px;background:rgba(255,94,0,0.2);color:#FFD700;margin-right:8px;font-size:12px}
+.leaderboard{background:#0a0a0a;overflow:hidden}
+.leaderboard-row{display:flex;align-items:center;padding:8px;border-bottom:1px solid var(--border-color);transition:background 0.3s}
+.leaderboard-row:hover{background:#111}
+.leaderboard-rank{width:40px;height:40px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:var(--primary);color:#fff;font-weight:900;margin-right:12px}
+.badge-emoji{font-size:60px}
+.gradient-text{background:linear-gradient(90deg, #FFD700,#FF8C00,var(--secondary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-size:48px;font-weight:900;margin-bottom:2rem;border:none;}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="gradient-text">DOPEFLACK FOUNDATION</div>
+  
+  <h1>🏆 LEADERBOARD COMUNITÁRIO</h1>
+  <div class="card-grid">
+    <div class="card">
+      <h2>Nebulosa Violeta 🥉 Bronze</h2>
+      <p style="color:#888;margin-top:16px;">Obras: 4 • Participação: 45 contribuições<br>Espaço VIP: Próximo nível em 5 contribuições</p>
+      <button class="btn">Apoiar Artista</button>
+    </div>
+    
+    <div class="card">
+      <h2>Ritmos da Aurora 🥈 Silver</h2>
+      <p style="color:#888;margin-top:16px;">Obras: 6 • Participação: 112 contribuições<br>Espaço VIP: Platinum Collector</p>
+      <button class="btn">Contribuir</button>
+    </div>
+    
+    <div class="card">
+      <h2>Urban Legends 🥇 Gold</h2>
+      <p style="color:#888;margin-top:16px;">Obras: 12 • Participação: 580 contribuições<br>Espaço VIP: Legendario Patron</p>
+      <button class="btn">Doar Agora</button>
+    </div>
+  </div>
+
+  <div class="leaderboard">
+    <h2 style="margin-top:40px;">📊 Ranking Engajamento Público</h2>
+    <table style="width:100%">
+      <thead><tr><th>#</th><th>Artista</th><th>Badge</th><th>Obras</th><th>Total Recebido</th></tr></thead>
+      <tbody>
+        <tr class="leaderboard-row"><td><div class="leaderboard-rank">1</div></td><td>Urban Legends</td><td>🥇 Gold VIP</td><td>12</td><td>R$ 4.850,00</td></tr>
+        <tr class="leaderboard-row"><td><div class="leaderboard-rank">2</div></td><td>Ritmos Aurora</td><td>🥈 Silver</td><td>6</td><td>R$ 3.200,00</td></tr>
+        <tr class="leaderboard-row"><td><div class="leaderboard-rank">3</div></td><td>Horizontes Sonoros</td><td>🥉 Bronze</td><td>4</td><td>R$ 2.890,00</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div style="margin-top:40px;background:rgba(255,94,0,0.1);padding:24px;border-radius:16px;text-align:center;">
+    <h3>💝 Pertença Social Ativa</h3>
+    <p>Fãs mais engajados recebem badges automatizadas + visibilidade pública em ranking global</p>
+  </div>
+</div>
+</body>
+</html>

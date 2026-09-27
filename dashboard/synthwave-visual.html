@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>DopeFlac Foundation - Synthwave Dashboard</title>
+<style>
+/* Synthwave + Cyberpunk Aesthetic */
+:root {
+  --primary: #FF5E3A;    /* Orange neons da imagem */
+  --secondary: #D946EF;   /* Magenta/rosa visual da screenshot */
+  --bg: rgba(10,10,20,0.95);
+  --card-bg: rgba(20,20,30,0.8);
+  --gradient-start: #FF5E3A;
+  --gradient-end: #D946EF;  
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box;}
+
+body {
+  background: radial-gradient(ellipse at center, #1a0a2e 0%, #000 100%);
+  color: rgba(255,255,255,0.9);
+  font-family: 'Inter', -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 40px rgba(255,94,58,0.5);
+}
+
+.container { max-width: 1600px; margin: 0 auto; padding: 0 24px;}
+
+/* Grid Layout inspirado na imagem */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr 340px;
+  gap: 24px;
+}
+
+/* Sidebar Navigation */
+.sidebar{background:var(--card-bg);border-right:1px solid rgba(255,94,58,0.2);padding:32px 16px;}
+.nav-item { display: flex; align-items: center; padding: 16px; color: var(--secondary); margin: 0 0 4px 0; border-radius: 8px; transition: all 0.3s; }
+.nav-item:hover, .nav-item.active { background: linear-gradient(90deg, var(--gradient-start), transparent); }
+.nav-icon { margin-right: 12px; font-size: 18px;}
+
+/* Audio Spectrum Visualizer Style */
+.audio-spectrum {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.wave {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation: wave-animation 4s ease-in-out infinite;
+}
+
+/* Leaderboard */
+.leaderboard-rankings { max-height: 720px; overflow-y:auto; }
+
+/* Grant Voting Cards simulação da image */
+.voting-section { position:relative;overflow:hidden;padding:32px;}
+.vote-card {display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding:16px;border-radius:8px;background:var(--card-bg);cursor:pointer;}
+.vote-card:hover{transform:translateX(8px)}
+.vote-button {padding: 8px 24px;background:linear-gradient(135deg,var(--gradient-start),#0a0a0a);border:none;border-radius:6px;color:white;font-weight:700;text-transform:uppercase;cursor:pointer;}
+
+/* Badges Sociais */
+.leaderboard-row {display:flex;align-items:center;padding:12px 16px;margin-bottom:8px;background:var(--card-bg);border-radius:8px;transition:all 0.3s;border-left:4px solid transparent;}
+.leaderboard-rank-1 { border-color: #FFD700;} /* Gold */
+.leaderboard-rank-2 { border-color: #C0C0C0;} /* Silver */
+.leaderboard-rank-3 { border-color: #CD7F32;} /* Bronze */
+
+/* Animation keyframes */
+@keyframes wave-animation {0%, 100%{transform: translateY(5px);}50%{transform: translateY(-5px);}}
+@keyframes pulse-glow {0%{box-shadow: 0 0 0 rgba(255,94,58,0);}50%{box-shadow: 0 0 40px var(--primary);}100%{box-shadow: 0 0 0 rgba(255,94,58,0);}}
+
+/* Cultural Fund Cards */
+.fund-card {display:flex;flex-direction:column;gap:8px;margin-bottom:16px;padding:16px;border-radius:12px;background:var(--card-bg);}
+.fund-badge { padding: 4px 12px; border-radius: 20px; background: linear-gradient(90deg, red, rgba(255,0,255,0.3)); }
+
+</style>
+</head>
+<body>
+    <div class="container">
+        <!-- Logo -->
+        <div style="display:flex;justify-content:space-between;padding-top:48px;margin-bottom:32px;">
+            <h1 class="gradient-text" style="font-size:48px;font-weight:900;">DOPEFLAC</h1>
+            <div style="text-align:right;">
+                <div style="color:white;">User Profile 👤</div>
+                <div style="color:var(--secondary)">EchoByte</div>
+            </div>
+        </div>
+
+        <!-- Dashboard Grid -->
+        <div class="dashboard-grid">
+            
+            <!-- Left Sidebar -->
+            <aside class="sidebar">
+                <a href="#" class="nav-item active"><span class="nav-icon">🏠</span>Home</a>
+                <a href="#" class="nav-item"><span class="nav-icon">🎵</span>My Music</a>
+                <a href="#" class="nav-item"><span class="nav-icon">📚</span>Library</a>
+                <a href="#" class="nav-item"><span class="nav-icon">👥</span>Community</a>
+                <a href="#" class="nav-item"><span class="nav-icon">🎁</span>Grants</a>
+            </aside>
+
+            <!-- Main Content - Player + Leaderboard -->
+            <main style="display:flex;flex-direction:column;gap:24px;">
+                
+                <!-- Top Section: Active Streamer -->
+                <div style="background:var(--card-bg);border-radius:16px;padding:32px;border-left:4px solid var(--primary);">
+                    <div style="display:flex;justify-content:space-between;margin-bottom:16px;">
+                        <div>
+                            <span class="gradiente-text" style="font-size:18px;font-weight:700;">NEON RHYTHMS</span>
+                            <div style="color:#888;">Cipher Kid | 24-bit/96kHz FLAC Lossless</div>
+                        </div>
+                        <button class="vote-button">▶ Play</button>
+                    </div>
+                    
+                    <!-- Audio Spectrum Visualizer -->
+                    <div class="audio-spectrum" style="height:180px;margin:24px 0;">
+                        <div class="wave"></div>
+                        <div style="color:#666;position:absolute;font-size:14px;">Interactive audio spectrum</div>
+                    </div>
+
+                    <!-- Controls -->
+                    <div style="display:flex;justify-content:center;gap:8px;margin-top:12px;">
+                        <button class="vote-button" style="background:#222;padding:8px 16px;font-size:12px;">↻</button>
+                        <button class="vote-button" style="background:#222;width:40px;height:40px;padding:0;font-size:16px;">⏮</button>
+                        <button class="vote-button" style="background:#222;width:40px;height:40px;padding:0;font-size:16px;">⏸️▶</button>
+                        <button class="vote-button" style="background:#222;width:40px;height:40px;padding:0;font-size:16px;">⏭</button>
+                    </div>
+
+                    <!-- Recent Releases Grid -->
+                    <h3 style="color:var(--secondary);margin-top:32px;margin-bottom:16px;">Recent Releases</h3>
+                    
+                    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:auto;">
+                        <!-- Album Card 1 -->
+                        <div class="vote-card">
+                            <div style="width:100%;aspect-ratio:1;border-radius:12px;background:linear-gradient(135deg,var(--primary),var(--secondary));display:flex;align-items:center;justify-content:center;margin-bottom:8px;">🔮</div>
+                            <div>Synthwave Dreams<br><span style="color:#888;font-size:12px;">Cipher Kid - FLAC</span></div>
+                        </div>
+                        
+                        <!-- Album Card 2 -->
+                        <div class="vote-card">
+                            <div style="width:100%;aspect-ratio:1;border-radius:12px;background:linear-gradient(135deg,var(--secondary),#4776E6);display:flex;align-items:center;justify-content:center;margin-bottom:8px;">⭕</div>
+                            <div>Quantum Beats<br><span style="color:#888;font-size:12px;">NovaX - FLAC</span></div>
+                        </div>
+                        
+                        <!-- Album Card 3 -->
+                        <div class="vote-card">
+                            <div style="width:100%;aspect-ratio:1;border-radius:12px;background:linear-gradient(135deg,#4776E6,var(--primary));padding:8px;">🌆</div>
+                            <div>Urban Pulse<br><span style="color:#888;font-size:12px;">Cipher Kid - FLAC</span></div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </main>
+
+            <!-- Sidebar Right -->
+            <aside style="background:var(--card-bg);border-radius:16px;padding:32px;position:relative;">
+                
+                <!-- Cultural Fund -->
+                <div class="fund-card" style="position:relative;overflow:hidden;z-index:1;">
+                    <span class="fund-badge">📊 Live透明 audit</span>
+                    <h2 class="gradient-text" style="font-size:48px;font-weight:900;">CULTURAL FUND</h2>
+                    <div style="font-size:36px;color:white;">$<span style="color:var(--primary)">487,250.00</span></div>
+                    
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px;">
+                        <div class="fund-card">
+                            <span style="color:#888;font-size:12px;">Active Grants</span>
+                            <div style="font-size:28px;color:white;">14<br><span style="color:var(--primary)">+3 active</span></div>
+                        </div>
+                        
+                        <div class="fund-card">
+                            <span style="color:#888;font-size:12px;">Total Distributed</span>
+                            <div style="font-size:24px;color:white;">$<span style="color:var(--secondary)">1,215,900.00</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Grant Voting -->
+                    <h3 style="color:var(--secondary);margin-top:48px;">Current Grant Voting</h3>
+                    
+                    <div class="vote-card">
+                        <div style="display:flex;align-items:center;gap:16px;">
+                            <div style="width:64px;height:64px;border-radius:50%;background:#222;display:flex;align-items:center;justify-content:center;">🧙‍♂️</div>
+                            <div>
+                                <div style="font-size:18px;font-weight:700;">NovaX</div>
+                                <div style="color:#888;">"Starfall"</div>
+                            </div>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:16px;">
+                            <div style="font-size:24px;font-weight:700;" class="text-right">1205</div>
+                            <button class="vote-button">VOTE</button>
+                        </div>
+                    </div>
+
+                    <div class="vote-card">
+                        <div style="display:flex;align-items:center;gap:16px;">
+                            <div style="width:64px;height:64px;border-radius:50%;background:#222;display:flex;align-items:center;justify-content:center;">🌑</div>
+                            <div>
+                                <div style="font-size:18px;font-weight:700;">Lunar Echo</div>
+                                <div style="color:#888;">"Eclipse"</div>
+                            </div>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:16px;">
+                            <div style="font-size:24px;font-weight:700;" class="text-right">980</div>
+                            <button class="vote-button">VOTE</button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </aside>
+        </div>
+    </div>
+</body>
+</html>
