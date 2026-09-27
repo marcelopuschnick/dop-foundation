@@ -1,41 +1,98 @@
-# Ambiente virtual
+# =============================================================================
+# DOP FOUNDATION — .gitignore
+# Configuração para repositório público com segurança e colaboração
+# =============================================================================
+
+# Ambiente virtual Python
 .venv/
-venv/
-env/
-
-# Python
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
-.Python
-build/
-dist/
-*.egg-info/
+*.py[cod]
+*$py.class
 
-# Configurações locais
-.env
-config/.env
-config/local.*
-
-# Dados locais
+# Banco de dados SQLite (não versionar!)
 dados/*.db
-dados/*.sqlite
-dados/*.log
-dados/*.json
+dados/*/*.db
 
-# IPFS local
-ipfs-data/
+# Variáveis de ambiente sensíveis (.env real!)
+.env
+.env.local
+.env.*.local
 
-# Blockchain local
-.ape/
-.build/
+# Logs e arquivos temporários
+*.log
+logs/
+temp/
+.tmp/
 
-# Sistema
-.DS_Store
-Thumbs.db
-*.swp
+# IPFS e arquivos de mídia grandes (opcional, já são hash no repo)
+dados/*/*.flac
+dados/*/*.wav
+!.gitkeep
 
-# IDE
+# IDE / Editor
 .vscode/
 .idea/
+*.swp
+*.swo
+*~
+
+# Dependências node (se usar hardhat)
+node_modules/
+package-lock.json
+
+# Executáveis Windows
+*.exe
+*.msi
+
+# Docker volumes (podem ser muito grandes!)
+docker-volume-*/
+
+# Certificados e chaves criptográficas
+*.pem
+*.key
+*.p12
+certificates/
+
+# IDE / Editor Visual Studio Code
+.settings.json
+.vscode/settings.json
+
+# Python specific
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.mypy_cache/
+.jupyter/
+
+# Mac OS
+.DS_Store
+.AppleDouble
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Copilot / IA code completions (não compartilhar!)
+*.code-workspace.json
+.idea/caches/
+
+# Build outputs de contratos
+contracts/*Artifact.json
+
+# Arquivos gerados pelo Streamlit
+.streamlit/
+
+# Cache de Ollama (se usar)
+ollama_cache/
+
+# =============================================================================
+# REGRAS DE SEGURANÇA PARA OPEN SOURCE
+# =============================================================================
+
+# NÃO subir: endereços de carteiras privadas
+!/.env.example  # Exemplo seguro com placeholders
+
+# NÃO subir: arquivos grandes de mídia
+!.gitkeep  # Mantemos placeholder para trackear pasta vazia

@@ -1,0 +1,38 @@
+# =============================================================================
+# DOP FOUNDATION — .gitattributes
+# Configurações para Git ignorar/converter automaticamente arquivos
+# =============================================================================
+
+# Windows CRLF, mas manter LF em docs (padrão GitHub)
+*.md text eol=lf
+*.py text eol=lf
+*.sol text eol=lf
+*.json text eol=lf
+
+# Manter arquivos binários do Git como binários
+*.db binary
+*.png binary
+*.jpg binary
+*.gif binary
+*.ico binary
+
+# Não line-ending detection em logs (podem ser muito grandes)
+*.log -text
+
+# Executáveis como binário
+*.exe binary
+*.msi binary
+*.bat binary
+*.ps1 binary
+
+# Arquivos Python como texto, não bytecode
+*.pyc binary
+
+# SQLite sempre binário
+dados/*.db binary
+
+# SVGs mantidos nativos (não converter para base64)
+*.svg text eol=lf
+
+# Manter emojis em docs UTF-8 puro
+* emoji=literal
